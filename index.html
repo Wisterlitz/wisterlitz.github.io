@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wisterlitz home</title>
+  <link rel="stylesheet" href="WatNotBot.css">
+  <script type="text/javascript" src="WatNotBot.js" defer></script>
+</head>
+<body onload="initialiseWatNotBot()">
+<button onclick="initialiseWatNotBot()" style="position: absolute; width: 60px; margin:auto;">reload watnotbot</button>
+<div id="yourMenu">This is some place holder text</div>
+<div id="WatNotBot">
+  <div id="BotHeader"><img src="WatNotBot.png" height="80px"/><span>WatNotBot</span><button style="font-family:dingbats; margin-top:10px; position:absolute; right:13px;" onclick="closeWatNotBot();">&#10005;</button></div>
+  <div id="BotBody">
+    <!--div id="demo"></div-->
+      <div id="BotText1" class="BotText" style="visibility:hidden;"><p>Hi! :) I'm WatNotBot</p></div>
+      <div id="BotText2" class="BotText" style="visibility:hidden;"><p>Welcome to the Wisterlitz website</p></divid="BotText1" class="BotText"></div>
+      <div id="BotText3" class="BotText"style="visibility:hidden;"><p>Help me personalise your experience by answering the following three questions...</p></div>
+      <div id="BotText4" class="BotText" style="visibility:hidden;">
+        <p>How do you like your...</p>
+        <p><strong>Feminism</strong></p>
+        <span>Doesn't figure<input type="range" orient="vertical" min="1" max="5" value="1" class="slider" id="range1">Hidden Figures</span>
+        <p><strong>Science</strong></p>
+        <span>Coffee table<input type="range" orient="vertical" min="1" max="5" value="1" class="slider" id="range2">Periodic table</span>
+        <p><strong>Discussion</strong></p>
+        <span>Not Today<input type="range" orient="vertical" min="1" max="5" value="1" class="slider" id="range3">Stay and play</span>
+<input type="button" value="AND" onclick="buttonClicked('And');"/>
+<input type="button" value="OR" onclick="buttonClicked('Or');"/>
+<input type="button" value="OR=" onclick="buttonClicked('Or=');"/>      
+
+      </div>
+  </div>
+
+</div>
+
+
+
+
+<!--<div class="slidecontainer">
+ 
+<input type="button" value="AND" onclick="buttonClicked('And');"/>
+<input type="button" value="OR" onclick="buttonClicked('Or');"/>
+<input type="button" value="OR=" onclick="buttonClicked('Or=');"/>
+<p>Value: <span id="demo"></span></p>
+</div>-->
+
+
+</body>
+</html>
