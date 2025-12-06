@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wisterlitz Projects - Risen</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="wisterlitz.css">
+<script>
+  function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain attribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div w3-include-html="navbar.html"></div> 
+<script>
+includeHTML();
+</script>
+
+<div class="w3-container w3-padding-64" style="max-width:1564px" id="project_risen" >
+
+<h1>Risen</h1>
+<h2>(Curation & Installation, 2024)</h2>
+<p>Risen is a dialogic space containing a collection of works that explore bread.</p>
+
+<p>Why bread? Because bread is everyday and ordinary, but also eternal, symbolic, and intertwined with human development, innovation, and revolution. Bread is food and food is bread, and it works as an illustration of our modern food system: the what, how and even why we eat.</p>
+</div>    
+</body>
+</html>

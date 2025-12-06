@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Wisterlitz Projects - Knitwitter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="wisterlitz.css">
+<script>
+  function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain attribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+</head>
 <body>
 
+<!-- Navbar (sit on top) -->
+<div w3-include-html="navbar.html"></div> 
+<script>
+includeHTML();
+</script>
+
+<div class="w3-container w3-padding-64" style="max-width:1564px" id="project_knitwitter" >
 <h1>Knitwitter</h1>
     <h2>(Digital artwork, 2020)</h2>
 <p>Knitwitter facilitates tactile engagement with digital data through knitting and crochet.</p>
 
+<p>Knitwitter by Wisterlitz is a collaborative artwork that facilitates a tactile engagement with digital data through knitting and crochet. It is an invitation for anyone familiar with knitting needles or a crochet hook and yarn to encode some text in to a pattern, and then use that pattern to hide their message in a piece of knitting or crochet.</p>
+
+<p>The Knitwitter app encodes your text into binary code and makes pattern suggestions, but the message you choose to encode and how you choose to interpret the pattern in your knitting or crochet is up to you.</p>    
+    
 <p>Knitwitter is an invitation for anyone familiar with knitting needles or a crochet hook and yarn to encode some text in to a pattern, and then use that pattern to hide their message in a piece of knitting or crochet. The Knitwitter app encodes your text into binary code and makes pattern suggestions, but the message you choose to encode and how you choose to interpret the pattern in your knitting or crochet is up to you.</p>
 
 <!--link to Knitwitter or maybe just put the app here-->
@@ -15,8 +61,11 @@
 <p>The Control Shift provocation: How we can reframe and rethink our relationships with technology? What might happen if there was more space for poetic or tactile engagements with the digital? Can we reconsider our connections, responsibilities and embodied entanglements with technology?</p>
 
 <p><a href="https://blog.knitwitter.com/">This blog</a> documents the process of developing Knitwitter, which was developed during the COVID-19 lockdown of 2020.</p>
+</div>
 </body>
 </html>
+
+
 
 
 

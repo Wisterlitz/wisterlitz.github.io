@@ -1,6 +1,49 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Wisterlitz Projects - Moonbrella</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="wisterlitz.css">
+<script>
+  function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain attribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+</head>
 <body>
+
+<!-- Navbar (sit on top) -->
+<div w3-include-html="navbar.html"></div> 
+<script>
+includeHTML();
+</script>
+
+<div class="w3-container w3-padding-64" style="max-width:1564px" id="project_moonbrella">
 
 <h1>Moonbrella</h1>
     <h2>(Installation, 2016)</h2>
@@ -16,12 +59,14 @@
 
 <h4>Putting Moonbrella together</h4>
 
-<p>We worked with poet <a href="http://thommiegillow.com/">Thommie Gillow</a> to bring the stories to life. She created 9 different poems featuring 11 of the 29 women. Thommie recorded herself performing the poems and we added soundscapes using music and found sounds relevant to each story. Each recording was then installed into its own Moonbrella which was dressed to illustrate aspects of the life of the person/people featured in the poem.</p>
+<p>We worked with the poet <a href="http://thommiegillow.com/">Thommie Gillow</a> to bring the stories to life. She created 9 different poems featuring 11 of the 29 women. Thommie recorded herself performing the poems and we added soundscapes using music and found sounds relevant to each story. Each recording was then installed into its own Moonbrella which was dressed to illustrate aspects of the life of the person/people featured in the poem.</p>
 
-<h4>So you want to have Moonbrella at your event?
+<!-- <h4>So you want to have Moonbrella at your event?</h4>-->
 
 <!--put the Moonbrella brochure here somehow-->
-    
+</div>    
 </body>
 </html>
+
+
 

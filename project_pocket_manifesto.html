@@ -1,10 +1,74 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Wisterlitz Projects - Pocket Manifesto</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="wisterlitz.css">
+<script>
+  function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain attribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+</head>
 <body>
 
-<h1>Pocket Manifesto</h1>
-<h2>(Installation, 2019)</h2>    
-<p>Are you held back by poor pockets? Does the tyranny of fake pockets and tiny pockets mean you always have to carry a bag? Join the liberation – Pocket Manifesto and the People’s Pocket Improvement Programme!</p>
+<!-- Navbar (sit on top) -->
+<div w3-include-html="navbar.html"></div> 
+<script>
+includeHTML();
+</script>
 
+<div class="w3-container w3-padding-64" style="max-width:1564px" id="project_pocket_manifesto" >
+
+<h1>Pocket Manifesto</h1>
+<h2>(Installation, 2019)</h2>
+
+<p>Pocket Manifesto is a dialogic space where participants explore issues relating to gender inequality. The entry point for the dialogue - that pockets in clothes made for girls and women often contain no pockets or inadequate pockets - is evidenced and explored by engaging with the Pocket Manifesto and the People's Pocket Improvement Programme.</p>
+  
+<h4>Pocket Manifesto – we believe that:</h4>
+
+<ul style="list-style-type:square;">
+  <li>Pockets are a basic human right that should be unfettered by fashion</li>
+  <li>A bag is not a pocket</li>
+  <li>Emancipation will happen one pocket at a time</li>
+</ul>
+
+<h4>The People’s Pocket Improvement Programme - we will: </h4>
+
+<ul style="list-style-type:square;">
+  <li>Embiggen the tiny pocket</li>
+  <li>Fight the immorality of the fake pocket</li>
+  <li>Provide pockets for the pocketlesse</li>
+</ul>
+
+<p>The space is established around a series of activities which include: a museum of pockets (which is itself housed inside some pockets), a pickpocket raffle, a pocket inspection, bunting featuring social media posts about pocket inequality, and the opportunity to participate in the retrofitting of pockets to pocket-deprived clothes.</p>
+</div>  
 </body>
 </html>
+
+
