@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Wisterlitz Website</title>
+<title>Wisterlitz Projects - The Redemption of the Magic Cone Snail</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="wisterlitz.css">
+<script>
+  function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain attribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
 </head>
 <body>
 
 <!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar mm-yellow w3-wide w3-padding w3-card">
-    <a href="#home" class="w3-bar-item w3-button mm-yellow"><b>WiSTERLiTZ</b></a>
-    <!-- Float links to the right. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
-      <a href="#projects" class="w3-bar-item w3-button">Projects</a>
-      <a href="#about" class="w3-bar-item w3-button">About</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-    </div>
-  </div>
-</div>
-<div class="w3-container w3-padding-32" id="project_cone_snail">
+<div w3-include-html="navbar.html"></div> 
+<script>
+includeHTML();
+</script>
+<div class="w3-container w3-padding-64" id="project_cone_snail">
 <h3>The Redemption of the Magic Cone Snail</h3>
 
   <p>Short film using live action puppetry and stop motion animation.</p>
@@ -52,6 +74,7 @@
 </div>
 </body>
 </html>
+
 
 
 
