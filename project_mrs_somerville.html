@@ -1,6 +1,49 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Wisterlitz Projects - Mrs Somerville's Monument</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="wisterlitz.css">
+<script>
+  function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain attribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+</head>
 <body>
+
+<!-- Navbar (sit on top) -->
+<div w3-include-html="navbar.html"></div> 
+<script>
+includeHTML();
+</script>
+
+<div class="w3-container w3-padding-64" style="max-width:1564px" id="project_mrs_somerville">
 
 <h1>Mrs Somerville's Monument</h1>
     <h2>(Animated short, 2017)</h2>
@@ -21,8 +64,9 @@
 <h4>The making of...</h4>
 
 <p>Mrs Somerville's Monument was entirely handcrafted by Becky and Liz. Becky finally got to use the armature she had been gifted years ago to build Mrs S and painstakingly created the puppet in the style of Mary Somerville (including that fabulous 19th century dress), all finished off with the judicious application of Copydex. Liz constructed the front of house set, utilising some new woodworking skills recently acquired through the Bristol Women's Workshop. Much of the detail, including the furniture, was constructed out of balsa laminate and the pleasingly malleable card retrieved from the back of some discarded certificate envelopes (you may  recognise the "Please Do Not Bend" on the poster tube from certificate envelopes too). Some of the items presented to Mrs S as clues were sourced from the stocking-filler toy aisle of the local Tesco Extra. The front of house set was placed on top of the stairwell that gives access to Becky's loft. This seemingly precarious positioning allowed access to the back of the set from underneath (i.e. whilst standing on the stairs and reaching up), allowing us to manipulate the puppet and the front door from behind, do some tie-downs, etc, whilst not obstructing or disturbing the view of the front. All without building any fancy structures or scaffolding. It really is quite a handy spot (2025 edit - alas, no more!).</p>
-    
+</div>
 </body>
 </html>
+
 
 
